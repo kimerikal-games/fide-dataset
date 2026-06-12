@@ -11,10 +11,10 @@ The bundled datasets span **February 2015 to April 2026**.
 
 The pipeline produces three tables under `dataset/`:
 
-Fast download links:
-- [players.parquet](dataset/players/players.parquet)
-- [ratings.parquet](dataset/ratings/ratings.parquet)
-- [titles.parquet](dataset/titles/titles.parquet)
+Explore datasets instantly with [Parquet viewer](https://parquet-viewer.xiangpeng.systems/):
+- [Explore Players](https://parquet-viewer.xiangpeng.systems/?url=https://raw.githubusercontent.com/kimerikal-games/fide-dataset/master/dataset/players/players.parquet)
+- [Explore Ratings](https://parquet-viewer.xiangpeng.systems/?url=https://raw.githubusercontent.com/kimerikal-games/fide-dataset/master/dataset/ratings/ratings.parquet)
+- [Explore Titles](https://parquet-viewer.xiangpeng.systems/?url=https://raw.githubusercontent.com/kimerikal-games/fide-dataset/master/dataset/titles/titles.parquet)
 
 ### `players/players.parquet`
 
