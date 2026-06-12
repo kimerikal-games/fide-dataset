@@ -1,0 +1,14 @@
+[project]
+name = "fide-ratings"
+version = "0.1.0"
+description = "A pipeline that turns the monthly FIDE rating lists into tidy Parquet datasets."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+dependencies = [
+    "lxml>=4.9",
+    "pandas>=2.0",
+    "polars>=1.20",
+    "pyarrow>=10.0",
+    "requests>=2.25",
+]
