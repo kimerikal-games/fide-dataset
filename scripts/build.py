@@ -13,6 +13,9 @@ from utils import add_log_level_arg, get_path
 logger = logging.getLogger(__name__)
 
 
+COMPRESSION = {"compression": "zstd", "compression_level": 12}
+
+
 def _main() -> int:
     """Parse CLI arguments and build each requested target dataset."""
     parser = argparse.ArgumentParser(description="Build the dataset from the processed monthly Parquet files.")
@@ -117,7 +120,7 @@ def build_players(source: Path, destination: Path) -> None:
         .sort("fideid")
     )
 
-    players_lazy.sink_parquet(destination / "players.parquet", compression="zstd", mkdir=True)
+    players_lazy.sink_parquet(destination / "players.parquet", **COMPRESSION, mkdir=True)
 
 
 @register_build_function("titles")
@@ -156,7 +159,7 @@ def build_titles(source: Path, destination: Path) -> None:
         .sort(["fideid", "year", "month", "title_type", "title"])
     )
 
-    titles_lazy.sink_parquet(destination / "titles.parquet", compression="zstd", mkdir=True)
+    titles_lazy.sink_parquet(destination / "titles.parquet", **COMPRESSION, mkdir=True)
 
 
 @register_build_function("ratings")
@@ -168,11 +171,7 @@ def build_ratings(source: Path, destination: Path) -> None:
         .sort(["fideid", "time_control", "year", "month"])
     )
 
-    ratings_lazy.sink_parquet(
-        destination / "ratings.parquet",
-        compression="zstd",
-        mkdir=True,
-    )
+    ratings_lazy.sink_parquet(destination / "ratings.parquet", **COMPRESSION, mkdir=True)
 # fmt: on
 
 if __name__ == "__main__":
